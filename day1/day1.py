@@ -6,4 +6,4 @@ with open("./day1_list", "r") as stuff:
     for x in list1337:
         for y in list1337:  
             if x + y == 2020:
-                print(x, y)
+                print(x * y)
