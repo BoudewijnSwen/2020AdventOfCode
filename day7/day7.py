@@ -47,9 +47,20 @@ def zoek(shade,color,ruleList):
                     canContain.extend(subContain)
     return canContain
 
+def zoek_amount(shade,color,ruleList):
+    amount = 0
+    for rule in ruleList:
+        if rule.outer['shade'] == shade and rule.outer['color'] == color:
+            if len(rule.inner) != 0:
+                for container in rule.inner:
+                    amount += rule.inner[container]['amount']
+                    amount += (rule.inner[container]['amount'] * zoek_amount(rule.inner[container]['shade'],rule.inner[container]['color'],ruleList))
+    return amount
+
 ruleList = []
 for line in list1337:
     ruleList.append(rulert(line))
 
-bla = zoek('shiny','gold',ruleList)
-print(f'Answer to part 1: {len(set(bla))}')
+answerP1 = zoek('shiny','gold',ruleList)
+answerP2 = zoek_amount('shiny','gold',ruleList)
+print(f'Answer to part 1: {len(set(bla))} and the answer to part 2: {answerP2}')
