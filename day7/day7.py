@@ -63,4 +63,4 @@ for line in list1337:
 
 answerP1 = zoek('shiny','gold',ruleList)
 answerP2 = zoek_amount('shiny','gold',ruleList)
-print(f'Answer to part 1: {len(set(bla))} and the answer to part 2: {answerP2}')
+print(f'Answer to part 1: {len(set(answerP1))} and the answer to part 2: {answerP2}')
